@@ -1,2 +1,2 @@
 # UnPuzzled
-A Jigsaw Puzzle solver using AI
+A jigsaw puzzle solver using AI
