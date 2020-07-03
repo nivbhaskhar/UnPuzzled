@@ -14,7 +14,7 @@ _Description here_
 ### Checking Adjacency: A subproblem
 
    1. Problem definition, data generation and visualization
-      - [Notebook](Checking_adjacency_dataset.ipynb), [Markdown](Checking_adjacency_dataset.md)
+      - [Notebook](CheckingAdjacency/DatasetGeneration/Checking_adjacency_dataset.ipynb), [Markdown](CheckingAdjacency/DatasetGeneration/Checking_adjacency_dataset.md)
      
    2. Adjacency distance: A no ML approach
       - [Notebook](), [Markdown]()
