@@ -1,5 +1,5 @@
 # UnPuzzled
-__A jigsaw puzzle solver using AI__
+_A Jigsaw puzzle solver using AI_
 
 
 ## Contents
@@ -25,9 +25,9 @@ __A jigsaw puzzle solver using AI__
        - [Notebook]()
        - [Markdown]()
        
-     - Training
-       - [Notebook]()
-       - [Markdown]()
+   - Training
+      - [Notebook]()
+      - [Markdown]()
        
    - Evaluation and comparisons
        - [Notebook]()
