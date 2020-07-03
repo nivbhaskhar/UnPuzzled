@@ -84,7 +84,7 @@ The following is a helper function which takes as input an iterator and a buffer
 
 
 
-__What it does__ : it keeps getting the data from the original iterator and storing it in a buffer till buffer_size is achieved. Then it <i><b>shuffles<b></i> the data collected so far in the buffer and gives it out one by one when called. Once the buffer is empty, it again collects the data from the original iterator and stores it in the buffer till buffer_size is achieved and so on ...
+__What it does__ : it keeps getting the data from the original iterator and storing it in a buffer till buffer_size is achieved. Then it <i><b>shuffles</b></i> the data collected so far in the buffer and gives it out one by one when called. Once the buffer is empty, it again collects the data from the original iterator and stores it in the buffer till buffer_size is achieved and so on ...
 
 
 ```python
@@ -132,7 +132,7 @@ for x in b:
  
 #### Output
 <ul>
-    <li> juxtaposed_pieces_torchtensor : square cropped rescaled piece with width, height = model_dim <li>
+    <li> juxtaposed_pieces_torchtensor : square cropped rescaled piece with width, height = model_dim </li>
     <li> label : 1 if left-right adjacent, 0 if not</li>
 </ul>
 
