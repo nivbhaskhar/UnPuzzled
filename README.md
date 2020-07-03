@@ -8,8 +8,9 @@ __A jigsaw puzzle solver using AI__
 
 ### Checking Adjacency: A subproblem
 
-   - [Problem definition]()
-   - [Data generation and visualization]()
+   - Problem definition, data generation and visualization
+     - [Notebook](Checking_adjacency_dataset.ipynb)
+     - [Markdown](Checking_adjacency_dataset.md)
    - [Adjacency distance: A no ML approach]()
    - Model architectures
      - [FromScratch : A CNN model]()
