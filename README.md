@@ -17,7 +17,7 @@ _Description here_
       - [Notebook](CheckingAdjacency/DatasetGeneration/Checking_adjacency_dataset.ipynb), [Markdown](CheckingAdjacency/DatasetGeneration/Checking_adjacency_dataset.md)
      
    2. Adjacency distance: A no ML approach
-      - [Notebook](), [Markdown]()
+      - [Notebook](CheckingAdjacency/AdjacencyDistance/Adjacency_distance.ipynb), [Markdown](CheckingAdjacency/AdjacencyDistance/Adjacency_distance.md)
      
    3. Model architectures
       - FromScratch : A CNN model
