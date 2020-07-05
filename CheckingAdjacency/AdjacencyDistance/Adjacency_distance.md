@@ -5,12 +5,12 @@ Recall that we call a tuple of puzzle pieces (P, Q) (order matters!) to be __lef
 
 We compute the __left-right adjacency distance__ of a tuple (P,Q) as follows:
 
-* Extract LE, the left edge of piece P (1 pixel width)
-* Extract RE, the right edge of Piece Q (1 pixel width). 
+* Extract RE, the right edge of piece P (1 pixel width)
+* Extract LE, the left edge of Piece Q (1 pixel width). 
 * Compute the difference LE-RE. 
-* Set the adjacency distance of (P,R) and (Q,S) to be the euclidean norm || LE-RE||
+* Set the left-right adjacency distance of (P,Q) to be the euclidean norm || LE-RE||
 
-We will use the __left-right adjacency distance__ score to predict the adjacency of puzzle piece tuples (P,Q)
+We will use the (negative of the __left-right adjacency distance__ ) as a score to predict the adjacency of puzzle piece tuples (P,Q)
 
 
 ```python
@@ -51,7 +51,6 @@ Let us compute  the left-right adjacency distance of puzzle piece tuples for som
 
 ```python
 my_root_dir = os.getenv("MY_ROOT_DIR")
-#my_root_dir = "/Users/ideallaedi/Desktop/Jigsaw_AI/CUB_200_dataset_split/CUB_200_images/CUB_200_train"
 my_sq_puzzle_piece_dim = 100
 my_size_of_buffer = 500
 my_model_dim = 100
@@ -230,7 +229,7 @@ In this no ML approach to checking adjacency, we would like to set a threshold d
 
 ## Computing statistics
 
-We have already computed the negative of distance scores for 1000 puzzle-piece tuples above. Recall that this data is stored in the list _negative_distance_scores_. For these data-points, the actual labels (adjacent(1)/non-adjacent(0)) is stored in the list _true_labels_
+We have already computed the negative of distance scores for 5000 puzzle-piece tuples above. Recall that this data is stored in the list _negative_distance_scores_. For these data-points, the actual labels (adjacent(1)/non-adjacent(0)) is stored in the list _true_labels_
 
 
 
@@ -340,8 +339,8 @@ print(f"threshold_for_best_accuracy is {threshold_for_best_accuracy}")
 print(f"best_accuracy is {best_accuracy}")
 ```
 
-    threshold_for_best_accuracy is 2.0909242630004883
-    best_accuracy is 0.8702
+    threshold_for_best_accuracy is 2.3586792945861816
+    best_accuracy is 0.901
 
 
 We set our threshold _td_ = threshold_for_best_accuracy
@@ -372,8 +371,8 @@ predicted_labels = list(map(f, negative_distance_scores))
 print(metrics.confusion_matrix(true_labels, predicted_labels, labels=[1, 0]))
 ```
 
-    [[2023  262]
-     [ 388 2327]]
+    [[2090  195]
+     [ 301 2414]]
 
 
 
@@ -384,12 +383,12 @@ print(metrics.classification_report(true_labels, predicted_labels, labels=[0, 1]
 
                   precision    recall  f1-score   support
     
-               0       0.90      0.86      0.88      2715
-               1       0.84      0.89      0.86      2285
+               0       0.93      0.89      0.91      2715
+               1       0.87      0.91      0.89      2285
     
-        accuracy                           0.87      5000
-       macro avg       0.87      0.87      0.87      5000
-    weighted avg       0.87      0.87      0.87      5000
+        accuracy                           0.90      5000
+       macro avg       0.90      0.90      0.90      5000
+    weighted avg       0.90      0.90      0.90      5000
     
 
 
