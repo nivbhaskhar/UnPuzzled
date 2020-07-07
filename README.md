@@ -23,8 +23,8 @@ _Description here_
       - FromScratch : A CNN model
         - [x] [Notebook](CheckingAdjacency/ModelArchitectures/FromScratch_CNN.ipynb), [Markdown](CheckingAdjacency/ModelArchitectures/FromScratch_CNN.md) 
        
-      - ResNetFT : A finetuned ResNet model 
-        - [ ] [Notebook](), [Markdown]()
+      - ResNetFT : Finetuning the ResNet18 model 
+        - [x] [Notebook](CheckingAdjacency/ModelArchitectures/ResNetFT_Finetuning.ipynb), [Markdown](CheckingAdjacency/ModelArchitectures/ResNetFT_Finetuning.md)
        
    4. Training
       -  Training template 
