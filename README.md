@@ -29,7 +29,7 @@ _Description here_
    4. Training
       - [Notebook](), [Markdown]()
        
-   5. Evaluation and comparisons
+   5. Evaluation and comparisons of models
       - [Notebook](), [Markdown]()
 
 
@@ -44,7 +44,7 @@ _Description here_
 3. Solvers in action
    - [Notebook](), [Markdown]()
 
-4. Evaluation and comparisons
+4. Evaluation and comparisons of solvers
    - [Notebook](), [Markdown]()
 
 
