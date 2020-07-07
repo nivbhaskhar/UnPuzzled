@@ -21,12 +21,12 @@ _Description here_
      
    3. Model architectures
       - FromScratch : A CNN model
-        - [Notebook](), [Markdown]() 
+        - [Notebook](CheckingAdjacency/ModelArchitectures/FromScratch_CNN.ipynb), [Markdown](CheckingAdjacency/ModelArchitectures/FromScratch_CNN.md) 
        
       - ResNetFT : A finetuned ResNet model
         - [Notebook](), [Markdown]()
        
-   4. Training
+   4. Training template
       - [Notebook](), [Markdown]()
        
    5. Evaluation and comparisons of models
