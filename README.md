@@ -26,8 +26,16 @@ _Description here_
       - ResNetFT : A finetuned ResNet model
         - [Notebook](), [Markdown]()
        
-   4. Training template
-      - [Notebook](), [Markdown]()
+   4. Training
+      -  Training template 
+         - [Notebook](), [Markdown]()
+         
+      -  Training FromScratch
+         - [Notebook](), [Markdown]()
+         
+      -  Training ResNetFT
+         - [Notebook](), [Markdown]()
+      
        
    5. Evaluation and comparisons of models
       - [Notebook](), [Markdown]()
