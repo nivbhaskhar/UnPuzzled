@@ -52,6 +52,8 @@ def shuffle_buffer_iterator(actual_iterator, size_of_buffer):
 
 
 class AdjacencyDataset(IterableDataset):
+
+
     def __init__(self, root_dir, sq_puzzle_piece_dim, size_of_buffer, model_dim):
         super(IterableDataset).__init__()
         self.root_dir = root_dir

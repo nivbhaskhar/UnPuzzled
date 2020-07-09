@@ -28,13 +28,13 @@ _Description here_
        
    4. Training
       -  Training template 
-         - [ ] [Notebook](), [Markdown]()
+         - [x] [Notebook](CheckingAdjacency/Training/Training_template.ipnyb), [Markdown](CheckingAdjacency/Training/Training_template.md)
          
       -  Training FromScratch
-         - [ ] [Notebook](), [Markdown]()
+         - [x] [Notebook](CheckingAdjacency/Training/Training_FromScratch.ipnyb), [Markdown](CheckingAdjacency/Training/Training_FromScratch.md)
          
       -  Training ResNetFT
-         - [ ] [Notebook](), [Markdown]()
+         - [ ] [Notebook](CheckingAdjacency/Training/Training_ResNetFT.ipnyb), [Markdown](CheckingAdjacency/Training/Training_ResNetFT.ipnyb)
       
        
    5. Evaluation and comparisons of models
