@@ -1,3 +1,6 @@
+#Models
+*.pt
+
 #Files with private data
 *PRIVATEDATA.*
 
