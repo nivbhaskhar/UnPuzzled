@@ -85,6 +85,31 @@ def adjacency_dist(juxtaposed_pieces_torchtensor, width):
     differences = left_edges-right_edges
     distances = torch.norm(differences, p='fro', dim=(1,2))
     return distances
+
+class AdjacencyClassifier_NoML():
+    def __init__(self,model_dim=224):
+        self.model_dim=model_dim
+
+    def negative_distance_score(self, x):
+        #x dim is 3 x model_dim x mode_dim
+        distances = adjacency_dist(x, self.model_dim)
+        return -1*distances
+    
+    def comparison(self,d,threshold):
+        ans = 1
+        if d<-1*threshold:
+            ans=0
+        return ans
+    
+    def predictions(self,x,threshold):
+        distances = self.negative_distance_score(x)
+        pred = torch.tensor(list(map(lambda y: self.comparison(y,threshold),distances)))
+        return pred
+        
+    
+
+
+
   
 
 
