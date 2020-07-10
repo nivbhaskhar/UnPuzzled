@@ -1,7 +1,7 @@
-# Training FromScratch
+# Finetuning ResNetFT
 
 
-We train our FromScratch CNN model to solve the checking_left_right_adjacency problem
+We finetune ResNet18 to solve the checking_left_right_adjacency problem
 
 
 ```python
@@ -98,9 +98,10 @@ my_dataloaders = create_dataloaders(my_root_dir,my_val_dir, my_sq_puzzle_piece_d
 my_model_name, feature_extract = get_model_details()
 ```
 
-    Press 0 for FromScratch and 1 for ResNetFT 0
+    Press 0 for FromScratch and 1 for ResNetFT 1
+    Press 0 for FineTuning and 1 for FeatureExtracting 0
     ************
-    Using FromScratch
+    Using ResNetFT
     feature_extracting : False
 
 
@@ -112,7 +113,7 @@ my_model_name
 
 
 
-    'FromScratch'
+    'ResNetFT'
 
 
 
@@ -142,7 +143,7 @@ print(f"my_momentum = {my_momentum}")
 
 ```python
 #Training epochs
-my_epochs = 25
+my_epochs = 5
 ```
 
 ## Creating models, loss criterion and optimizers
@@ -156,52 +157,70 @@ my_model, my_loss_criterion, my_optimizer = make_model_lc_optimizer(my_model_nam
 
 ```
 
-    Using FromScratch - Expect more number of parameters to learn!
-    	 bigunit.0.conv1.weight
-    	 bigunit.0.conv2.weight
-    	 bigunit.0.unit.2.weight
-    	 bigunit.0.unit.2.bias
-    	 bigunit.0.unit.5.weight
-    	 bigunit.0.unit.5.bias
-    	 bigunit.1.conv1.weight
-    	 bigunit.1.conv2.weight
-    	 bigunit.1.unit.2.weight
-    	 bigunit.1.unit.2.bias
-    	 bigunit.1.unit.5.weight
-    	 bigunit.1.unit.5.bias
-    	 bigunit.2.conv1.weight
-    	 bigunit.2.conv2.weight
-    	 bigunit.2.unit.2.weight
-    	 bigunit.2.unit.2.bias
-    	 bigunit.2.unit.5.weight
-    	 bigunit.2.unit.5.bias
-    	 bigunit.3.conv1.weight
-    	 bigunit.3.conv2.weight
-    	 bigunit.3.unit.2.weight
-    	 bigunit.3.unit.2.bias
-    	 bigunit.3.unit.5.weight
-    	 bigunit.3.unit.5.bias
-    	 bigunit.4.conv1.weight
-    	 bigunit.4.conv2.weight
-    	 bigunit.4.unit.2.weight
-    	 bigunit.4.unit.2.bias
-    	 bigunit.4.unit.5.weight
-    	 bigunit.4.unit.5.bias
-    	 bigunit.5.conv1.weight
-    	 bigunit.5.conv2.weight
-    	 bigunit.5.unit.2.weight
-    	 bigunit.5.unit.2.bias
-    	 bigunit.5.unit.5.weight
-    	 bigunit.5.unit.5.bias
-    	 fc1.weight
-    	 fc1.bias
+    Fine tuning ResNet - Expect more number of parameters to learn!
+    	 conv1.weight
     	 bn1.weight
     	 bn1.bias
-    	 fc2.weight
-    	 fc2.bias
-    	 bn2.weight
-    	 bn2.bias
-    No_of_parameters to learn : 44
+    	 layer1.0.conv1.weight
+    	 layer1.0.bn1.weight
+    	 layer1.0.bn1.bias
+    	 layer1.0.conv2.weight
+    	 layer1.0.bn2.weight
+    	 layer1.0.bn2.bias
+    	 layer1.1.conv1.weight
+    	 layer1.1.bn1.weight
+    	 layer1.1.bn1.bias
+    	 layer1.1.conv2.weight
+    	 layer1.1.bn2.weight
+    	 layer1.1.bn2.bias
+    	 layer2.0.conv1.weight
+    	 layer2.0.bn1.weight
+    	 layer2.0.bn1.bias
+    	 layer2.0.conv2.weight
+    	 layer2.0.bn2.weight
+    	 layer2.0.bn2.bias
+    	 layer2.0.downsample.0.weight
+    	 layer2.0.downsample.1.weight
+    	 layer2.0.downsample.1.bias
+    	 layer2.1.conv1.weight
+    	 layer2.1.bn1.weight
+    	 layer2.1.bn1.bias
+    	 layer2.1.conv2.weight
+    	 layer2.1.bn2.weight
+    	 layer2.1.bn2.bias
+    	 layer3.0.conv1.weight
+    	 layer3.0.bn1.weight
+    	 layer3.0.bn1.bias
+    	 layer3.0.conv2.weight
+    	 layer3.0.bn2.weight
+    	 layer3.0.bn2.bias
+    	 layer3.0.downsample.0.weight
+    	 layer3.0.downsample.1.weight
+    	 layer3.0.downsample.1.bias
+    	 layer3.1.conv1.weight
+    	 layer3.1.bn1.weight
+    	 layer3.1.bn1.bias
+    	 layer3.1.conv2.weight
+    	 layer3.1.bn2.weight
+    	 layer3.1.bn2.bias
+    	 layer4.0.conv1.weight
+    	 layer4.0.bn1.weight
+    	 layer4.0.bn1.bias
+    	 layer4.0.conv2.weight
+    	 layer4.0.bn2.weight
+    	 layer4.0.bn2.bias
+    	 layer4.0.downsample.0.weight
+    	 layer4.0.downsample.1.weight
+    	 layer4.0.downsample.1.bias
+    	 layer4.1.conv1.weight
+    	 layer4.1.bn1.weight
+    	 layer4.1.bn1.bias
+    	 layer4.1.conv2.weight
+    	 layer4.1.bn2.weight
+    	 layer4.1.bn2.bias
+    	 fc.weight
+    	 fc.bias
+    No_of_parameters to learn : 62
 
 
 ## Checking GPU availability
@@ -241,20 +260,20 @@ my_board_writer = SummaryWriter(tensorboard_dir)
 
 
 
-<iframe id="tensorboard-frame-70416521db354d89" width="100%" height="800" frameborder="0">
+<iframe id="tensorboard-frame-cbc5e61c0a1e0bdf" width="100%" height="800" frameborder="0">
 </iframe>
 <script>
   (function() {
-    const frame = document.getElementById("tensorboard-frame-70416521db354d89");
+    const frame = document.getElementById("tensorboard-frame-cbc5e61c0a1e0bdf");
     const url = new URL("/", window.location);
-    url.port = 6006;
+    url.port = 6007;
     frame.src = url;
   })();
 </script>
 
 
 
-# Training the model
+# Finetuning the model
 
 
 ```python
@@ -263,17 +282,17 @@ train_it(my_epochs, 0,
         my_batch_size, my_dataloaders,my_board_writer,device,batches_per_epoch=500)
 ```
 
-_We actually ran this notebook and trained the FromScratch model on Google Colabs so as to use GPU services._
+_We actually ran this notebook and finetuned ResNet18 on Google Colabs so as to use GPU services._
 
 # Results
 
-The following is a snapshot of the tensorboard after training the model for 25 epochs with 500 batches per epoch and batch-size 20
+The following is a snapshot of the tensorboard after finetuning the model for 5 epochs with 500 batches per epoch and batch-size 20
 
-![Training tensorboard](FromScratch_TrainingTensorboard.png)
+![Training tensorboard](ResNetFT_TrainingTensorboard.png)
 
-![Validation tensorboard](FromScratch_ValidationTensorboard.png)
+![Validation tensorboard](ResNetFT_ValidationTensorboard.png)
 
-We see that __FromScratch__ achieves around __95%__ max validation accuracy after this training with corresponding validation negative log likelihood loss around __0.13__
+We see that __ResNetFT__ achieves around __99.6%__ max validation accuracy with corresponding validation negative log likelihood loss around __0.01__
 
 
 ```python

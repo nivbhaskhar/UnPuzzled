@@ -147,7 +147,7 @@ def reshape_resnet(no_of_classes, feature_extract, use_pretrained=True):
 
 ```python
 def parameters_to_update(model_name, model, feature_extract=False):
-    params = model.parameters()
+    params = list(model.parameters())
     if model_name=="ResNetFT":
         if feature_extract:
             print("Feature extracting from ResNet - Expect less number of parameters to learn!")
@@ -167,7 +167,7 @@ def parameters_to_update(model_name, model, feature_extract=False):
                 if param.requires_grad == True:
                     print("\t",name)
         
-    print(f"No_of_parameters to learn : {len(list(model.parameters()))}")
+    print(f"No_of_parameters to learn : {len(params)}")
     return params
 ```
 

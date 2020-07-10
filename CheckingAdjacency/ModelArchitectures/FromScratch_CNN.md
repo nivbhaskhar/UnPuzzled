@@ -51,7 +51,6 @@ import Checking_adjacency_dataset as cad
 
 # The training data
 
-
 We use our earlier defined custom  _AdjacencyDataset_. Recall that we generate our data set from the CUB-200 dataset. 
 
 __Input for AdjacencyDataset__
@@ -83,6 +82,16 @@ my_sq_puzzle_piece_dim = 100
 my_size_of_buffer = 1000
 my_model_dim = 224
 my_batch_size = 5
+
+```
+
+<!--## Mean computation
+
+To make the data have zero mean, we'd like to take the mean of all our input data-points and subtract it from the original data-points. The mean can be computed in various ways. Here, we'll take our full bird images and flatten those C x H x W tensors into long vectors, and just further, break them up into individual numbers and take that mean.
+
+i.e, each R or G or B pixel value is one number and we take the mean across all bird images of all these numbers. This is not really feasible, so we'll just lazily take as sample some bird images and find the mean of those bird images alone and assume they work well with the whole data-set.-->
+
+
 
 
 

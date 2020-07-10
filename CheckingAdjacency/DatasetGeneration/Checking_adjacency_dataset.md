@@ -75,11 +75,11 @@ We also give the code for the actual dataset we will be using. There, we will fu
 
 ## Shuffler 
 
-### 1. A problem ?
+###  A problem ?
 
 We cannot "shuffle" our dataset if using the IterableDataset class as our iterator can only point to the "next" data point. If we make the dataset without shuffling, we'll probably process each image sequentially. From one image, we'll get a lot of data points (pairs of puzzle_pieces) which might make our model learn the specifics of one image rather than learning what "adjacency" is in general..
 
-### 2. And a way out
+###  And a way out
 The following is a helper function which takes as input an iterator and a buffer_size and returns an iterator. 
 
 
