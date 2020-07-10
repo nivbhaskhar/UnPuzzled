@@ -34,7 +34,7 @@ _Description here_
          - [x] [Notebook](CheckingAdjacency/Training/Training_FromScratch.ipynb), [Markdown](CheckingAdjacency/Training/Training_FromScratch.md)
          
       -  Training ResNetFT
-         - [x] [Notebook](CheckingAdjacency/Training/Training_ResNetFT.ipynb), [Markdown](CheckingAdjacency/Training/Training_ResNetFT.ipnyb)
+         - [x] [Notebook](CheckingAdjacency/Training/Training_ResNetFT.ipynb), [Markdown](CheckingAdjacency/Training/Training_ResNetFT.md)
       
        
    5. Evaluation and comparisons of models
