@@ -38,7 +38,7 @@ _Description here_
       
        
    5. Evaluation and comparisons of models
-      - [ ] [Notebook](), [Markdown]()
+      - [x] [Notebook](CheckingAdjacency/EvaluationsAndComparisons/ModelComparisons.ipynb), [Markdown](CheckingAdjacency/EvaluationsAndComparisons/ModelComparisons.md)
 
 
 ### Puzzle solver: A search

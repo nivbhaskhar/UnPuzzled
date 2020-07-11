@@ -102,6 +102,25 @@ def load_checkpoint(checkpoint_path, model, optimizer):
     
     return model, optimizer, checkpoint['epoch'], min_validation_loss
 
+def load_checkpoint_gpu(checkpoint_path, model, optimizer, GpuAvailable):
+    """
+    checkpoint_path: path where checkpoint was saved
+    model: model into which we want to load our checkpoint     
+    optimizer: optimizer into which we want to load our checkpoint
+    """
+    if GpuAvailable:
+        checkpoint = torch.load(checkpoint_path)
+    else:
+        checkpoint = torch.load(checkpoint_path,map_location=torch.device("cpu"))
+    
+    model.load_state_dict(checkpoint['state_dict'])
+    
+    optimizer.load_state_dict(checkpoint['optimizer'])
+    
+    min_validation_loss = checkpoint['min_validation_loss']
+    
+    return model, optimizer, checkpoint['epoch'], min_validation_loss
+
 
 def make_model(model_name,feature_extract,no_of_classes):
     if model_name=="FromScratch":
