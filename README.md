@@ -11,7 +11,7 @@ _Description here_
 
 ## Contents
 
-### Checking Adjacency: A subproblem
+### Checking adjacency: A subproblem
 
    1. Problem definition, data generation and visualization
       - [x] [Notebook](CheckingAdjacency/DatasetGeneration/Checking_adjacency_dataset.ipynb), [Markdown](CheckingAdjacency/DatasetGeneration/Checking_adjacency_dataset.md)
@@ -44,7 +44,7 @@ _Description here_
 ### Puzzle solver: A search
 
 1. Puzzle generator
-   - [ ] [Notebook](), [Markdown]()
+   - [x] [Notebook](PuzzleSolver/PuzzleGenerator/Puzzle_generator.ipynb), [Markdown](PuzzleSolver/PuzzleGenerator/Puzzle_generator.md)
 
 2. Search template
    - [ ] [Notebook](), [Markdown]()
