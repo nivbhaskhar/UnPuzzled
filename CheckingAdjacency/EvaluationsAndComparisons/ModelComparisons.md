@@ -295,7 +295,7 @@ The following is a snapshot of the evaluation tensorboard after testing each mod
 
 ![Evaluation tensorboard](Comparison_of_evaluation.png)
 
-We see that ResNetFT's performance is very high with more than 99.8% accuracy consistently, while FromScratch performs with an accuracy varying between 94-99%. The AdjacencyClassifier_NoML underperforms in comparison varying between 84-95% accuracy
+We see that ResNetFT's performance is very high with more than 99.8% accuracy consistently, while FromScratch performs with an accuracy varying between 94-99%. The AdjacencyClassifier_NoML underperforms in comparison with an accuracy varying between 84-95%
 
 
 ```python
