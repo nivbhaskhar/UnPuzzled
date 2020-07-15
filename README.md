@@ -49,9 +49,12 @@ _Description here_
 2. Search template
    - [x] [Notebook](PuzzleSolver/SearchTemplate/Search_template.ipynb), [Markdown](PuzzleSolver/SearchTemplate/Search_template.md)
 
-3. Solvers in action
-   - [x] [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action.md)
-   - [x] A step by step display [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.md)
+3. Solvers
+   - In action
+     - [x] [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action.md)
+     
+   - A step by step display 
+     - [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.md)
 
 4. Evaluation and comparisons of solvers
    - [ ] [Notebook](), [Markdown]()
