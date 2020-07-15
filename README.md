@@ -54,7 +54,7 @@ _Description here_
      - [x] [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action.md)
      
    - A step by step display 
-     - [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.md)
+     - [x] [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.md)
 
 4. Evaluation and comparisons of solvers
    - [ ] [Notebook](), [Markdown]()
