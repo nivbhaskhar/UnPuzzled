@@ -1,12 +1,6 @@
-# Generating puzzles
+# Puzzle generator
 
-We use the CUB-200 dataset to generate our puzzles : http://www.vision.caltech.edu/visipedia/CUB-200.html
-
-Each image will give rise to a puzzle as follows: We'll cut up the image into uniform square pieces of a given width(=height). We'll rotate each square puzzle piece randomly by 0/90/180/270 degrees and we'll shuffle the order of the square pieces randomly and return these randomly rotated pieces as numpy arrays in their shuffled order.
-
-
-We'll also indicate what the top left corner piece is, to help our puzzle solver start off.
-
+We construct a puzzle generator in this notebook 
 
 
 ```python
@@ -28,6 +22,16 @@ from random import sample
 import math
 
 ```
+
+# An overview
+
+We use the CUB-200 dataset to generate our puzzles : http://www.vision.caltech.edu/visipedia/CUB-200.html
+
+Each image from the dataset will give rise to a puzzle as follows: We'll cut up the image into uniform square pieces of a given width(=height). We'll rotate each square puzzle piece randomly by 0/90/180/270 degrees and we'll shuffle the order of the square pieces randomly and return these randomly rotated pieces as numpy arrays in their shuffled order.
+
+
+We'll also indicate what the top left corner piece is, to help our puzzle solver start off.
+
 
 # Notations
 
@@ -188,7 +192,7 @@ visualize_grid_and_labels(sample_image_file_name,sample_puzzle_square_piece_dim)
 ```
 
 
-![png](Puzzle_generator_files/Puzzle_generator_16_0.png)
+![png](Puzzle_generator_files/Puzzle_generator_18_0.png)
 
 
  
@@ -263,10 +267,10 @@ We return the dictionary [new labels : old labels, angle of rotation of the old 
 ### Outputs
 * rows : Number of rows we cut image into
 * cols : Number of cols we cut image into 
-* top_left_piece_new_label : 
-* top_left_piece_orientation :
-* new_to_old_label_dict : 
-* shuffled_puzzle_pieces_np : 
+* top_left_piece_new_label : new label of the original top left piece
+* top_left_piece_orientation : orientation of the original top left piece
+* new_to_old_label_dict : a dictionary which maps new labels to corresponding old labels, orientations
+* shuffled_puzzle_pieces_np : a list of the shuffled pieces stored as numpy arrays
 
 
 
@@ -423,11 +427,11 @@ sample_puzzle = get_puzzle_pieces(sample_image_file_name,sample_puzzle_square_pi
 
 
 
-![png](Puzzle_generator_files/Puzzle_generator_25_1.png)
+![png](Puzzle_generator_files/Puzzle_generator_27_1.png)
 
 
 
-![png](Puzzle_generator_files/Puzzle_generator_25_2.png)
+![png](Puzzle_generator_files/Puzzle_generator_27_2.png)
 
 
 

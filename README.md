@@ -47,7 +47,7 @@ _Description here_
    - [x] [Notebook](PuzzleSolver/PuzzleGenerator/Puzzle_generator.ipynb), [Markdown](PuzzleSolver/PuzzleGenerator/Puzzle_generator.md)
 
 2. Search template
-   - [ ] [Notebook](), [Markdown]()
+   - [x] [Notebook](PuzzleSolver/SearchTemplate/Search_template.ipynb), [Markdown](PuzzleSolver/SearchTemplate/Search_template.md)
 
 3. Solvers in action
    - [ ] [Notebook](), [Markdown]()
