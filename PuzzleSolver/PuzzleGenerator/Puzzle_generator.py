@@ -130,14 +130,15 @@ def get_puzzle_pieces(image_file_name,puzzle_square_piece_dim, display=False):
     no_of_puzzle_pieces = rows*cols     
     my_image = my_image.resize((new_image_length, new_image_width))
     
-    
-    #Sanity check print statements
-    print("****************")
-    print(f"puzzle_piece_length is {puzzle_piece_length}")
-    print(f"puzzle_piece_width is {puzzle_piece_width}")
-    print(f"no of rows are {rows}")
-    print(f"no of cols are {cols}")
-    print(f"no_of_puzzle_pieces are {no_of_puzzle_pieces}")
+    if display:
+        #Sanity check print statements
+        print("****************")
+        print(f"puzzle_piece_length is {puzzle_piece_length}")
+        print(f"puzzle_piece_width is {puzzle_piece_width}")
+        print(f"no of rows are {rows}")
+        print(f"no of cols are {cols}")
+        print(f"no_of_puzzle_pieces are {no_of_puzzle_pieces}")
+        print("****************")
 
     
     

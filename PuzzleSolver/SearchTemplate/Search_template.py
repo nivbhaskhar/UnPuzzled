@@ -5,7 +5,6 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
 import os
-from itertools import product
 
 import pprint
 import itertools
@@ -63,7 +62,7 @@ def left_right_adj_score(P, Q, R, S, model_name, model):
             if model_name=="AdjacencyClassifier_NoML":
                 score = model.negative_distance_score(new_input_torchtensor).numpy()
                 return score[0]
-            elif model_name=="Dummy":
+            elif model_name=="RandomScorer":
                 return random.random()
             else:
                 score = model(new_input_torchtensor).numpy()

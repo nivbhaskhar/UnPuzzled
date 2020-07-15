@@ -8,7 +8,6 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
 import os
-from itertools import product
 
 import pprint
 import itertools
@@ -131,7 +130,7 @@ def left_right_adj_score(P, Q, R, S, model_name, model):
             if model_name=="AdjacencyClassifier_NoML":
                 score = model.negative_distance_score(new_input_torchtensor).numpy()
                 return score[0]
-            elif model_name=="Dummy":
+            elif model_name=="RandomScorer":
                 return random.random()
             else:
                 score = model(new_input_torchtensor).numpy()
@@ -450,7 +449,7 @@ def solve_example(file_name, puzzle_square_piece_dim,model_name, model, show_sol
     print(f"In correct position and rotation: {correct_position_and_rotation}")
 ```
 
-# An example using the Dummy solver
+# An example using the RandomScorer solver
 
 
 ```python
@@ -460,7 +459,7 @@ my_image_file_name = 'input_for_trial.jpg'
 
 
 ```python
-my_model_name="Dummy"
+my_model_name="RandomScorer"
 my_model = None
 ```
 
@@ -477,6 +476,7 @@ solve_example(my_image_file_name,my_puzzle_square_piece_dim,my_model_name, my_mo
     no of rows are 3
     no of cols are 3
     no_of_puzzle_pieces are 9
+    ****************
 
 
 
@@ -488,7 +488,7 @@ solve_example(my_image_file_name,my_puzzle_square_piece_dim,my_model_name, my_mo
 
 
     *****************
-    Solved puzzle using Dummy solver
+    Solved puzzle using RandomScorer solver
 
 
 
@@ -496,7 +496,7 @@ solve_example(my_image_file_name,my_puzzle_square_piece_dim,my_model_name, my_mo
 
 
     *******************
-    In correct position: 2
+    In correct position: 1
     In correct position and rotation: 1
 
 

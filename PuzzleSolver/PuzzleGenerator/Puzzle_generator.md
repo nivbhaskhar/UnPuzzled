@@ -299,14 +299,17 @@ def get_puzzle_pieces(image_file_name,puzzle_square_piece_dim, display=False):
     no_of_puzzle_pieces = rows*cols     
     my_image = my_image.resize((new_image_length, new_image_width))
     
-    
-    #Sanity check print statements
-    print("****************")
-    print(f"puzzle_piece_length is {puzzle_piece_length}")
-    print(f"puzzle_piece_width is {puzzle_piece_width}")
-    print(f"no of rows are {rows}")
-    print(f"no of cols are {cols}")
-    print(f"no_of_puzzle_pieces are {no_of_puzzle_pieces}")
+    if display:
+        #Sanity check print statements
+        print("****************")
+        print(f"puzzle_piece_length is {puzzle_piece_length}")
+        print(f"puzzle_piece_width is {puzzle_piece_width}")
+        print(f"no of rows are {rows}")
+        print(f"no of cols are {cols}")
+        print(f"no_of_puzzle_pieces are {no_of_puzzle_pieces}")
+        print("****************")
+
+
 
     
     
@@ -381,13 +384,11 @@ def get_puzzle_pieces(image_file_name,puzzle_square_piece_dim, display=False):
         #font size + line thickness
         my_dpi = 100
         
-        
         #Display original image
         fig_0 = plt.figure(dpi = my_dpi)
         plt.imshow(my_image)
         plt.title("Original image")
         plt.axis('off')
-        
         
         #Display shuffled grid image
         fig = plt.figure(dpi = my_dpi)
@@ -424,6 +425,8 @@ sample_puzzle = get_puzzle_pieces(sample_image_file_name,sample_puzzle_square_pi
     no of rows are 5
     no of cols are 5
     no_of_puzzle_pieces are 25
+    ****************
+    ****************
 
 
 
@@ -439,7 +442,7 @@ sample_puzzle = get_puzzle_pieces(sample_image_file_name,sample_puzzle_square_pi
 print(f"top_left_piece_new_label = {sample_puzzle[2]}, top_left_piece_orientation = {sample_puzzle[3]}")
 ```
 
-    top_left_piece_new_label = (1, 3), top_left_piece_orientation = 1
+    top_left_piece_new_label = (4, 3), top_left_piece_orientation = 3
 
 
 
@@ -447,31 +450,31 @@ print(f"top_left_piece_new_label = {sample_puzzle[2]}, top_left_piece_orientatio
 pprint.pprint(sample_puzzle[4])
 ```
 
-    {(0, 0): (3, 0, 2),
-     (0, 1): (2, 2, 3),
-     (0, 2): (3, 4, 3),
-     (0, 3): (3, 1, 3),
-     (0, 4): (1, 4, 3),
-     (1, 0): (1, 0, 1),
-     (1, 1): (2, 4, 3),
-     (1, 2): (1, 1, 0),
-     (1, 3): (0, 0, 1),
-     (1, 4): (1, 2, 0),
-     (2, 0): (0, 3, 1),
-     (2, 1): (4, 1, 2),
-     (2, 2): (0, 2, 1),
-     (2, 3): (0, 1, 1),
-     (2, 4): (3, 3, 0),
-     (3, 0): (0, 4, 3),
-     (3, 1): (2, 1, 2),
-     (3, 2): (3, 2, 1),
-     (3, 3): (4, 3, 3),
-     (3, 4): (4, 2, 1),
-     (4, 0): (4, 4, 2),
-     (4, 1): (4, 0, 2),
-     (4, 2): (1, 3, 1),
-     (4, 3): (2, 0, 0),
-     (4, 4): (2, 3, 3)}
+    {(0, 0): (3, 4, 2),
+     (0, 1): (4, 2, 2),
+     (0, 2): (0, 1, 3),
+     (0, 3): (1, 1, 1),
+     (0, 4): (1, 2, 0),
+     (1, 0): (0, 4, 1),
+     (1, 1): (1, 3, 3),
+     (1, 2): (4, 1, 3),
+     (1, 3): (3, 0, 0),
+     (1, 4): (1, 0, 1),
+     (2, 0): (3, 3, 1),
+     (2, 1): (4, 0, 0),
+     (2, 2): (4, 4, 0),
+     (2, 3): (3, 2, 1),
+     (2, 4): (2, 3, 3),
+     (3, 0): (4, 3, 0),
+     (3, 1): (3, 1, 1),
+     (3, 2): (2, 2, 2),
+     (3, 3): (0, 3, 1),
+     (3, 4): (1, 4, 3),
+     (4, 0): (2, 0, 2),
+     (4, 1): (0, 2, 0),
+     (4, 2): (2, 4, 0),
+     (4, 3): (0, 0, 3),
+     (4, 4): (2, 1, 2)}
 
 
 
