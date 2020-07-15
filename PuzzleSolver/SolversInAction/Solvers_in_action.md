@@ -454,10 +454,10 @@ print(f"Time take for ResNetFT = {time.time()-start_time} seconds")
 
 # Summary
 
-Looking cursorily at the two input puzzles, it looks like all the three models solve the puzzles completely correctly!
+All the three models solved the two input puzzles completely correctly.
 
 
-For the two examples put together, AdjacencyClassifier_NoML is the quickest, taking around 1.4 seconds, FromScratch takes 5 seconds, while ResNetFT takes nearly 30 seconds. Note that we are running on a CPU though
+For the two examples put together, AdjacencyClassifier_NoML was the quickest, taking around 1.4 seconds, FromScratch took around 5.6 seconds, while ResNetFT took nearly 30 seconds. (Note that we are running on a CPU though)
 
 
 Further quantitative evaluation will be carried out to determine the efficacies of the solvers
