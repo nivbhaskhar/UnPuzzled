@@ -1,10 +1,11 @@
 # UnPuzzled
 _A Jigsaw puzzle solver using AI_
 
+---
 
 ## An overview
 
-This project consists of two components - a) __creating and solving puzzles__ b) __checking adjacency of puzzle pieces__.
+This project consists of two components :  _creation and solving of puzzles_ and _checking adjacency of puzzle pieces_.
 
 We construct a _puzzle generator_, which takes a given image and cuts it up into a rectangular grid of  uniform square puzzle pieces with each puzzle piece being of a specified dimension. It further randomly rotates each square piece by 0/90/180/270 degrees counterclockwise and shuffles up the pieces, thus creating a puzzle. 
 
@@ -22,6 +23,7 @@ _The following notebooks contain code and more precise notes for each step of th
 
 
 ## Contents
+
 
 ### Checking adjacency: A subproblem
 
