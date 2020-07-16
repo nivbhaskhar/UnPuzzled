@@ -72,6 +72,9 @@ else:
 
 ```
 
+    Running on the CPU
+
+
 ## Inputs
 
 
@@ -94,7 +97,7 @@ my_momentum = 0.9
 
 
 ```python
-model_names = [AdjacencyClassifier_NoML', 'FromScratch', 'ResNetFT']
+model_names = ['AdjacencyClassifier_NoML', 'FromScratch', 'ResNetFT']
 models = [AdjacencyClassifier_NoML()]
 for i in [1,2]:
     model_name=model_names[i]
@@ -115,6 +118,118 @@ for i in [1,2]:
     
     
 ```
+
+    Using FromScratch - Expect more number of parameters to learn!
+    	 bigunit.0.conv1.weight
+    	 bigunit.0.conv2.weight
+    	 bigunit.0.unit.2.weight
+    	 bigunit.0.unit.2.bias
+    	 bigunit.0.unit.5.weight
+    	 bigunit.0.unit.5.bias
+    	 bigunit.1.conv1.weight
+    	 bigunit.1.conv2.weight
+    	 bigunit.1.unit.2.weight
+    	 bigunit.1.unit.2.bias
+    	 bigunit.1.unit.5.weight
+    	 bigunit.1.unit.5.bias
+    	 bigunit.2.conv1.weight
+    	 bigunit.2.conv2.weight
+    	 bigunit.2.unit.2.weight
+    	 bigunit.2.unit.2.bias
+    	 bigunit.2.unit.5.weight
+    	 bigunit.2.unit.5.bias
+    	 bigunit.3.conv1.weight
+    	 bigunit.3.conv2.weight
+    	 bigunit.3.unit.2.weight
+    	 bigunit.3.unit.2.bias
+    	 bigunit.3.unit.5.weight
+    	 bigunit.3.unit.5.bias
+    	 bigunit.4.conv1.weight
+    	 bigunit.4.conv2.weight
+    	 bigunit.4.unit.2.weight
+    	 bigunit.4.unit.2.bias
+    	 bigunit.4.unit.5.weight
+    	 bigunit.4.unit.5.bias
+    	 bigunit.5.conv1.weight
+    	 bigunit.5.conv2.weight
+    	 bigunit.5.unit.2.weight
+    	 bigunit.5.unit.2.bias
+    	 bigunit.5.unit.5.weight
+    	 bigunit.5.unit.5.bias
+    	 fc1.weight
+    	 fc1.bias
+    	 bn1.weight
+    	 bn1.bias
+    	 fc2.weight
+    	 fc2.bias
+    	 bn2.weight
+    	 bn2.bias
+    No_of_parameters to learn : 44
+    Fine tuning ResNet - Expect more number of parameters to learn!
+    	 conv1.weight
+    	 bn1.weight
+    	 bn1.bias
+    	 layer1.0.conv1.weight
+    	 layer1.0.bn1.weight
+    	 layer1.0.bn1.bias
+    	 layer1.0.conv2.weight
+    	 layer1.0.bn2.weight
+    	 layer1.0.bn2.bias
+    	 layer1.1.conv1.weight
+    	 layer1.1.bn1.weight
+    	 layer1.1.bn1.bias
+    	 layer1.1.conv2.weight
+    	 layer1.1.bn2.weight
+    	 layer1.1.bn2.bias
+    	 layer2.0.conv1.weight
+    	 layer2.0.bn1.weight
+    	 layer2.0.bn1.bias
+    	 layer2.0.conv2.weight
+    	 layer2.0.bn2.weight
+    	 layer2.0.bn2.bias
+    	 layer2.0.downsample.0.weight
+    	 layer2.0.downsample.1.weight
+    	 layer2.0.downsample.1.bias
+    	 layer2.1.conv1.weight
+    	 layer2.1.bn1.weight
+    	 layer2.1.bn1.bias
+    	 layer2.1.conv2.weight
+    	 layer2.1.bn2.weight
+    	 layer2.1.bn2.bias
+    	 layer3.0.conv1.weight
+    	 layer3.0.bn1.weight
+    	 layer3.0.bn1.bias
+    	 layer3.0.conv2.weight
+    	 layer3.0.bn2.weight
+    	 layer3.0.bn2.bias
+    	 layer3.0.downsample.0.weight
+    	 layer3.0.downsample.1.weight
+    	 layer3.0.downsample.1.bias
+    	 layer3.1.conv1.weight
+    	 layer3.1.bn1.weight
+    	 layer3.1.bn1.bias
+    	 layer3.1.conv2.weight
+    	 layer3.1.bn2.weight
+    	 layer3.1.bn2.bias
+    	 layer4.0.conv1.weight
+    	 layer4.0.bn1.weight
+    	 layer4.0.bn1.bias
+    	 layer4.0.conv2.weight
+    	 layer4.0.bn2.weight
+    	 layer4.0.bn2.bias
+    	 layer4.0.downsample.0.weight
+    	 layer4.0.downsample.1.weight
+    	 layer4.0.downsample.1.bias
+    	 layer4.1.conv1.weight
+    	 layer4.1.bn1.weight
+    	 layer4.1.bn1.bias
+    	 layer4.1.conv2.weight
+    	 layer4.1.bn2.weight
+    	 layer4.1.bn2.bias
+    	 fc.weight
+    	 fc.bias
+    No_of_parameters to learn : 62
+
 
 ## Solver evaluation functions
 
@@ -659,98 +774,33 @@ print(f'Solved by none of the models = {solved_by_none}')
 
 ## Examples on which models underperformed
 
-### Unsolved images
+### Extracting information from the dataframes
 
 
 ```python
-unsolved_indices = list(comparison_df[comparison_df["solved_by_atleast_one"]<=0].index)
+unsolved_indices_dict = {}
+unsolved_indices_dict["All"]= list(comparison_df[comparison_df["solved_by_atleast_one"]<=0].index)
+for model_name in model_names:
+    unsolved_indices_dict[model_name] = list(models_stats_dict[model_name][models_stats_dict[model_name]["solved"]==0].index)
+
 ```
 
 
 ```python
-unsolved_imgs=[]
-for i in unsolved_indices:
-    unsolved_imgs.append(models_stats_dict["AdjacencyClassifier_NoML"].loc[i]["image_name"])
-```
-
-### AdjacencyClassifier_NoML vs ResNetFT
-
-
-```python
-symmetric_difference_indices = list(comparison_df[comparison_df['AdjacencyClassifier_NoML/ResNetFT']==1].index)
-```
-
-
-```python
-unsolved_by_adj_no_ml_imgs = []
-unsolved_by_resnetft_imgs = []
-for i in symmetric_difference_indices:
-    if models_stats_dict["AdjacencyClassifier_NoML"].loc[i]["solved"] == 0:
-        unsolved_by_adj_no_ml_imgs.append(models_stats_dict["AdjacencyClassifier_NoML"].loc[i]["image_name"])
-    else:
-        unsolved_by_resnetft_imgs.append(models_stats_dict["AdjacencyClassifier_NoML"].loc[i]["image_name"])
+unsolved_images_dict = {}
+for key in unsolved_indices_dict:
+    unsolved_images_dict[key] = set()
+    for i in unsolved_indices_dict[key]:
+        unsolved_images_dict[key].add(models_stats_dict["AdjacencyClassifier_NoML"].loc[i]["image_name"])
 ```
 
 ### Saving incorrectly solved examples for further analysis
 
 
 ```python
-models_stats_dict["FromScratch"].to_csv('FromScratch.csv')
-```
-
-
-```python
-unsolved_imgs
-```
-
-
-
-
-    ['CUB_200_test/182.Yellow_Warbler/Yellow_Warbler_0012_520734471.jpg',
-     'CUB_200_test/167.Hooded_Warbler/Hooded_Warbler_0020_2495513053.jpg',
-     'CUB_200_test/169.Magnolia_Warbler/Magnolia_Warbler_0020_2501274595.jpg',
-     'CUB_200_test/194.Cactus_Wren/Cactus_Wren_0020_2275534895.jpg',
-     'CUB_200_test/175.Pine_Warbler/Pine_Warbler_0025_2427811232.jpg',
-     'CUB_200_test/190.Red_cockaded_Woodpecker/Red_cockaded_Woodpecker_0016_115003148.jpg']
-
-
-
-
-```python
-unsolved_by_adj_no_ml_imgs
-```
-
-
-
-
-    ['CUB_200_test/172.Nashville_Warbler/Nashville_Warbler_0008_2622390699.jpg',
-     'CUB_200_test/185.Bohemian_Waxwing/Bohemian_Waxwing_0037_2303294858.jpg',
-     'CUB_200_test/188.Pileated_Woodpecker/Pileated_Woodpecker_0006_2443246132.jpg',
-     'CUB_200_test/180.Wilson_Warbler/Wilson_Warbler_0028_2525898597.jpg']
-
-
-
-
-```python
-unsolved_by_resnetft_imgs
-```
-
-
-
-
-    ['CUB_200_test/162.Canada_Warbler/Canada_Warbler_0007_2693139833.jpg',
-     'CUB_200_test/195.Carolina_Wren/Carolina_Wren_0024_3083663456.jpg',
-     'CUB_200_test/191.Red_headed_Woodpecker/Red_headed_Woodpecker_0022_2720313574.jpg',
-     'CUB_200_test/193.Bewick_Wren/Bewick_Wren_0018_305351820.jpg']
-
-
-
-
-```python
 shelfFile = shelve.open('mydata')
-shelfFile['unsolved_imgs'] = unsolved_imgs
-shelfFile['unsolved_by_adj_no_ml_imgs'] = unsolved_by_adj_no_ml_imgs
-shelfFile['unsolved_by_resnetft_imgs'] = unsolved_by_resnetft_imgs
+shelfFile["unsolved_indices_dict"] = unsolved_indices_dict
+shelfFile["unsolved_images_dict"] = unsolved_images_dict
 shelfFile.close()
 ```
 
@@ -884,9 +934,14 @@ fig.tight_layout(pad=-5);
 ```
 
 
-![png](SolverComparisons_files/SolverComparisons_68_0.png)
+![png](SolverComparisons_files/SolverComparisons_61_0.png)
 
 
 ## Comments
 
 The current evaluation classifies a puzzle as _unsolved_ even if the models got a major chunk right but placed it incorrectly on the board. So we will further visually investigate what the models did on puzzles they did not solve completey correctly. 
+
+
+```python
+
+```

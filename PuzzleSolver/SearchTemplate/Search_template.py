@@ -253,6 +253,36 @@ def display_solved_puzzle(rows, cols,puzzle_square_piece_dim, shuffled_puzzle_pi
     plt.show()
 
 
+
+
+def solve_example(file_name, puzzle_square_piece_dim,model_name, model, show_solving_progress=False,input_display=False):
+    print(f"Solving {file_name}...")
+    input = get_puzzle_pieces(file_name,puzzle_square_piece_dim, input_display)
+    rows = input[0]
+    cols = input[1] 
+    top_left_piece_new_label = input[2] 
+    top_left_piece_orientation = input[3] 
+    new_to_old_label_dict = input[4]
+    shuffled_puzzle_pieces_np = input[5]
+    board = solve_puzzle(rows, cols,top_left_piece_new_label,top_left_piece_orientation, 
+                         shuffled_puzzle_pieces_np, puzzle_square_piece_dim,model_name, model,show_solving_progress)
+    print("*****************")
+    print(f"Solved puzzle using {model_name} solver")
+    board.display(puzzle_square_piece_dim)    
+    information_dict = board.information_dict
+    predicted_new_to_old_dict = board.predicted_new_to_old_dict
+    #display_solved_puzzle(rows, cols, puzzle_square_piece_dim, shuffled_puzzle_pieces_np, new_to_old_label_dict)
+    correct_position = 0
+    correct_position_and_rotation = 0
+    for k in new_to_old_label_dict:
+        if new_to_old_label_dict[k][:2] == predicted_new_to_old_dict[k][:2]:
+            correct_position += 1
+            if new_to_old_label_dict[k][2] == predicted_new_to_old_dict[k][2]:
+                correct_position_and_rotation += 1
+    print("*******************")
+    print(f"In correct position: {correct_position}")
+    print(f"In correct position and rotation: {correct_position_and_rotation}")
+
 def solve_example(file_name, puzzle_square_piece_dim,model_name, model, show_solving_progress=False,input_display=False):
     print(f"Solving {file_name}...")
     input = get_puzzle_pieces(file_name,puzzle_square_piece_dim, input_display)
@@ -283,7 +313,75 @@ def solve_example(file_name, puzzle_square_piece_dim,model_name, model, show_sol
 
 
 
+def solve_example(file_name, puzzle_square_piece_dim,model_name, model, show_solving_progress=False,input_display=False):
+    print(f"Solving {file_name}...")
+    input = get_puzzle_pieces(file_name,puzzle_square_piece_dim, input_display)
+    rows = input[0]
+    cols = input[1] 
+    top_left_piece_new_label = input[2] 
+    top_left_piece_orientation = input[3] 
+    new_to_old_label_dict = input[4]
+    shuffled_puzzle_pieces_np = input[5]
+    board = solve_puzzle(rows, cols,top_left_piece_new_label,top_left_piece_orientation, 
+                         shuffled_puzzle_pieces_np, puzzle_square_piece_dim,model_name, model,show_solving_progress)
+    print("*****************")
+    print(f"Solved puzzle using {model_name} solver")
+    board.display(puzzle_square_piece_dim)    
+    information_dict = board.information_dict
+    predicted_new_to_old_dict = board.predicted_new_to_old_dict
+    #display_solved_puzzle(rows, cols, puzzle_square_piece_dim, shuffled_puzzle_pieces_np, new_to_old_label_dict)
+    correct_position = 0
+    correct_position_and_rotation = 0
+    for k in new_to_old_label_dict:
+        if new_to_old_label_dict[k][:2] == predicted_new_to_old_dict[k][:2]:
+            correct_position += 1
+            if new_to_old_label_dict[k][2] == predicted_new_to_old_dict[k][2]:
+                correct_position_and_rotation += 1
+    print("*******************")
+    print(f"In correct position: {correct_position}")
+    print(f"In correct position and rotation: {correct_position_and_rotation}")
+
+def modified_solve_example(file_name, puzzle_square_piece_dim,model_name, model, show_solving_progress=False,input_display=False):
+    input = get_puzzle_pieces(file_name,puzzle_square_piece_dim, input_display)
+    rows = input[0]
+    cols = input[1] 
+    top_left_piece_new_label = input[2] 
+    top_left_piece_orientation = input[3] 
+    new_to_old_label_dict = input[4]
+    shuffled_puzzle_pieces_np = input[5]
+    board = solve_puzzle(rows, cols,top_left_piece_new_label,top_left_piece_orientation, 
+                         shuffled_puzzle_pieces_np, puzzle_square_piece_dim,model_name, model,show_solving_progress)
+    information_dict = board.information_dict
+    predicted_new_to_old_dict = board.predicted_new_to_old_dict
+    solved_image = modified_display_solved_puzzle(rows, cols,puzzle_square_piece_dim, shuffled_puzzle_pieces_np, predicted_new_to_old_dict)
+    correct_position = 0
+    correct_position_and_rotation = 0
+    for k in new_to_old_label_dict:
+        if new_to_old_label_dict[k][:2] == predicted_new_to_old_dict[k][:2]:
+            correct_position += 1
+            if new_to_old_label_dict[k][2] == predicted_new_to_old_dict[k][2]:
+                correct_position_and_rotation += 1
+                
+    return file_name, rows*cols, correct_position, correct_position_and_rotation, solved_image
 
 
 
 
+    
+
+def modified_display_solved_puzzle(rows, cols,puzzle_square_piece_dim, shuffled_puzzle_pieces_np, predicted_new_to_old_dict):
+
+    puzzle_piece_length = puzzle_square_piece_dim
+    puzzle_piece_width = puzzle_square_piece_dim
+    new_image_length = rows*puzzle_piece_length
+    new_image_width = cols*puzzle_piece_width
+    
+    
+    solved_image = Image.new('RGB', (new_image_length,new_image_width), color="white")
+    for pos, piece in enumerate(shuffled_puzzle_pieces_np):
+        new_x, new_y = (pos//cols, (pos % cols))
+        if (new_x, new_y) in predicted_new_to_old_dict:
+            old_x, old_y, r = predicted_new_to_old_dict[(new_x, new_y)]
+            img_of_piece = Image.fromarray(piece, 'RGB').rotate(-90*r)
+            solved_image.paste(img_of_piece,(old_y*puzzle_piece_width,old_x*puzzle_piece_length,(old_y+1)*puzzle_piece_width,(old_x+1)*puzzle_piece_length))
+    return solved_image
