@@ -57,10 +57,13 @@ _Description here_
      - [x] [Notebook](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.ipynb), [Markdown](PuzzleSolver/SolversInAction/Solvers_in_action_step_by_step.md)
 
 4. Evaluation and comparisons of solvers
-   - [ ] [Notebook](), [Markdown]()
+   - [x] [Notebook](PuzzleSolver/SolverEvaluationAndComparisons/SolverComparisons.ipynb), [Markdown](PuzzleSolver/SolverEvaluationAndComparisons/SolverComparisons.md)
+   
+5. Analysis of incorrectly solved puzzles
+   - [ ] [Notebook](PuzzleSolver/SolverEvaluationAndComparisons/Incorrectly_solved_puzzles_analysis.ipynb), [Markdown](PuzzleSolver/SolverEvaluationAndComparisons/Incorrectly_solved_puzzles_analysis.md)
 
 
-### Unpuzzled: An application
+### Unpuzzled: An application (_In Progress_)
 
 
  
