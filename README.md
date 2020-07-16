@@ -1,7 +1,6 @@
 # UnPuzzled
 _A Jigsaw puzzle solver using AI_
 
----
 
 ## An overview
 
