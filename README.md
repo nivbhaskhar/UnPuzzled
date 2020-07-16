@@ -12,9 +12,14 @@ We construct several models (machine-learning based and non-machine learning bas
 
 We design a _search algorithm_ which takes a puzzle board with the _top-left corner filled in_, searches for the _best_ pieces to fit into the board till the board is filled completely. The task of determining which pieces fit _better_ makes use of the _checking-adjacency models_. We create _solvers_, which integrate the models with the search algorithm. Finally, we evaluate and compare the performances of the solvers on a test-data set of puzzles which are constructed by our puzzle generator from the test-portion of the CUB-200 dataset split.
 
-The following notebooks contain code and more precise notes for each step of this project.
+We are currently in the process of writing an interactive web-application which simulates puzzle-solving by these solvers.
 
-_We are currently in the process of writing an interactive web-application which simulates puzzle-solving by these solvers_
+
+---
+
+
+_The following notebooks contain code and more precise notes for each step of this project. If the jupyter notebooks take too long to load, we invite the reader to open the markdown versions, which load faster._
+
 
 ## Contents
 
@@ -47,6 +52,7 @@ _We are currently in the process of writing an interactive web-application which
    5. Evaluation and comparisons of models
       - [x] [Notebook](CheckingAdjacency/EvaluationsAndComparisons/ModelComparisons.ipynb), [Markdown](CheckingAdjacency/EvaluationsAndComparisons/ModelComparisons.md)
 
+---
 
 ### Puzzle solver: A search
 
@@ -67,8 +73,9 @@ _We are currently in the process of writing an interactive web-application which
    - [x] [Notebook](PuzzleSolver/SolverEvaluationAndComparisons/SolverComparisons.ipynb), [Markdown](PuzzleSolver/SolverEvaluationAndComparisons/SolverComparisons.md)
    
 5. Analysis of incorrectly solved puzzles
-   - [ ] [Notebook](PuzzleSolver/SolverEvaluationAndComparisons/Incorrectly_solved_puzzles_analysis.ipynb), [Markdown](PuzzleSolver/SolverEvaluationAndComparisons/Incorrectly_solved_puzzles_analysis.md)
+   - [x] [Notebook](PuzzleSolver/SolverEvaluationAndComparisons/Incorrectly_solved_puzzles_analysis.ipynb), [Markdown](PuzzleSolver/SolverEvaluationAndComparisons/Incorrectly_solved_puzzles_analysis.md)
 
+---
 
 ### Unpuzzled: An application (_In Progress_)
 
