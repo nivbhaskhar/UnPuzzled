@@ -1,0 +1,1 @@
+web: source setup.sh && python Unpuzzler_a_web_app.py
