@@ -1,8 +1,16 @@
+
 #Models
 *.pt
 
+#Databses
+*.db
+
 #Files with private data
 *PRIVATEDATA.*
+
+#Checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
