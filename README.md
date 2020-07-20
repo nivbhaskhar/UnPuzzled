@@ -12,7 +12,7 @@ We construct several models (machine-learning based and non-machine learning bas
 
 We design a _search algorithm_ which takes a puzzle board with the _top-left corner filled in_, searches for the _best_ pieces to fit into the board till the board is filled completely. The task of determining which pieces fit _better_ makes use of the _checking-adjacency models_. We create _solvers_, which integrate the models with the search algorithm. Finally, we evaluate and compare the performances of the solvers on a test-data set of puzzles which are constructed by our puzzle generator from the test-portion of the CUB-200 dataset split.
 
-We also give a web-application built using Gradio which simulates puzzle-solving by these solvers
+__We also give a web-application built using Gradio which simulates the puzzle-solving by the solver__
 
 ---
 
@@ -80,7 +80,7 @@ _The following notebooks contain code and more precise notes for each step of th
 ### Unpuzzler: An application 
 
 1. Web application code
-   - [x] [Notebook](Webapp/Unpuzzler_a_web_app.ipynb), [Markdown](Webapp/Unpuzzler_a_web_app.md)
+   - [x] [Notebook](WebApp/Unpuzzler_a_web_app.ipynb), [Markdown](WebApp/Unpuzzler_a_web_app.md)
 
 2. Heroku app
    
