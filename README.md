@@ -2,6 +2,9 @@
 _A Jigsaw puzzle solver using AI_
 
 
+![UnPuzzler](WebApp/screenshot_from_webapp.png)
+
+
 ## An overview
 
 This project consists of two components :  _creation and solving of puzzles_ and _checking adjacency of puzzle pieces_.
