@@ -24,7 +24,9 @@ import gradio as gr
 from io import BytesIO
 import base64
 
-
+#Torch
+import torch
+from torchvision import transforms, utils
 
 
 def get_puzzle_pieces(image_np):
@@ -176,14 +178,14 @@ def display_puzzle(rows, cols,puzzle_square_piece_dim, shuffled_puzzle_pieces_np
     return plt
 
 
-def adjacency_dist(juxtaposed_pieces_np, width):
-    #juxtaposed_pieces_torchtensor =  height x width x channel
+def adjacency_dist(juxtaposed_pieces_torchtensor, width):
+    #juxtaposed_pieces_torchtensor = batchsize x channel x height x width
     check = width % 2
     assert (check==0), "Model dim is not even"
-    right_edges = juxtaposed_pieces_np[:, (width//2)-1, :]
-    left_edges = juxtaposed_pieces_np[:, (width//2), :]
-    differences = (left_edges/255-right_edges/255)
-    distances = np.linalg.norm(differences)
+    right_edges = juxtaposed_pieces_torchtensor[:, :, :, (width//2)-1]
+    left_edges = juxtaposed_pieces_torchtensor[:, :, :, (width//2)]
+    differences = left_edges-right_edges
+    distances = torch.norm(differences, p='fro', dim=(1,2))
     return distances
 
 class AdjacencyClassifier_NoML():
@@ -191,10 +193,20 @@ class AdjacencyClassifier_NoML():
         self.model_dim=model_dim
 
     def negative_distance_score(self, x):
-        #x dim is 3 x model_dim x model_dim
+        #x dim is 3 x model_dim x mode_dim
         distances = adjacency_dist(x, self.model_dim)
         return -1*distances
     
+    def comparison(self,d,threshold):
+        ans = 1
+        if d<-1*threshold:
+            ans=0
+        return ans
+    
+    def predictions(self,x,threshold):
+        distances = self.negative_distance_score(x)
+        pred = torch.tensor(list(map(lambda y: self.comparison(y,threshold),distances)))
+        return pred
 
 
 
@@ -218,7 +230,7 @@ def transform_puzzle_input(piece_1, piece_2, model_dim=224):
         juxtaposed.paste(piece_1,(0,0,width, height))
         juxtaposed.paste(piece_2,(width,0,2*width, height))
         juxtaposed = juxtaposed.crop((width//2, 0,width//2 + width,height))
-        return np.array(juxtaposed)
+        return transforms.ToTensor()(juxtaposed)
     
 
 
@@ -228,10 +240,18 @@ def left_right_adj_score(P, Q, R, S, model_name, model):
     #model(P,Q)
     piece_1 = Image.fromarray(P, 'RGB').rotate(-90*R)
     piece_2 = Image.fromarray(Q, 'RGB').rotate(-90*S)
-    juxtaposed_pieces_np = transform_puzzle_input(piece_1, piece_2)
-    if model_name=="AdjacencyClassifier_NoML":
-        score = model.negative_distance_score(juxtaposed_pieces_np)
-        return score
+    
+    with torch.no_grad():
+            juxtaposed_pieces_torchtensor = transform_puzzle_input(piece_1, piece_2)
+            new_input_torchtensor = juxtaposed_pieces_torchtensor.unsqueeze(0)
+            if model_name=="AdjacencyClassifier_NoML":
+                score = model.negative_distance_score(new_input_torchtensor).numpy()
+                return score[0]
+            elif model_name=="RandomScorer":
+                return random.random()
+            else:
+                score = model(new_input_torchtensor).numpy()
+                return score[0,1]
                 
 
 
