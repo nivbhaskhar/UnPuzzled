@@ -12,18 +12,18 @@ _A Jigsaw puzzle solver using AI_
 
 This project consists of two components :  _creation and solving of puzzles_ and _checking adjacency of puzzle pieces_.
 
-We construct a _puzzle generator_, which takes a given image and cuts it up into a rectangular grid of  uniform square puzzle pieces with each puzzle piece being of a specified dimension. It further randomly rotates each square piece by 0/90/180/270 degrees counterclockwise and shuffles up the pieces, thus creating a puzzle. 
+I construct a _puzzle generator_, which takes a given image and cuts it up into a rectangular grid of  uniform square puzzle pieces with each puzzle piece being of a specified dimension. It further randomly rotates each square piece by 0/90/180/270 degrees counterclockwise and shuffles up the pieces, thus creating a puzzle. 
 
-We construct several models (machine-learning based and non-machine learning based) which are trained to detect if two given puzzle pieces are adjacent or not. We create custom datasets for these models using a _puzzle-pieces-pair generator_ which is similar to the _puzzle generator_ mentioned above. The actual images to construct our custom datasets are taken from the [CUB-200 dataset](http://www.vision.caltech.edu/visipedia-data/CUB-200-2011). From the start, we split the images in the CUB-200 dataset into training, validation and test portions. We construct custom validation and test datasets to validate and evaluate our checking-adjacency models.
+I construct several models (machine-learning based and non-machine learning based) which are trained to detect if two given puzzle pieces are adjacent or not. I create custom datasets for these models using a _puzzle-pieces-pair generator_ which is similar to the _puzzle generator_ mentioned above. The actual images to construct the custom datasets are taken from the [CUB-200 dataset](http://www.vision.caltech.edu/visipedia-data/CUB-200-2011). From the start, I split the images in the CUB-200 dataset into training, validation and test portions. I construct custom validation and test datasets to validate and evaluate the checking-adjacency models.
 
-We design a _search algorithm_ which takes a puzzle board with the _top-left corner filled in_, searches for the _best_ pieces to fit into the board till the board is filled completely. The task of determining which pieces fit _better_ makes use of the _checking-adjacency models_. We create _solvers_, which integrate the models with the search algorithm. Finally, we evaluate and compare the performances of the solvers on a test-data set of puzzles which are constructed by our puzzle generator from the test-portion of the CUB-200 dataset split.
+I design a _search algorithm_ which takes a puzzle board with the _top-left corner filled in_, searches for the _best_ pieces to fit into the board till the board is filled completely. The task of determining which pieces fit _better_ makes use of the _checking-adjacency models_. I create _solvers_, which integrate the models with the search algorithm. Finally, I evaluate and compare the performances of the solvers on a test-data set of puzzles which are constructed by the puzzle generator from the test-portion of the CUB-200 dataset split.
 
-__We also give a [web-application](https://unpuzzler.herokuapp.com) built using [Gradio](https://github.com/gradio-app/gradio) which simulates the puzzle-solving by the solver which is deployed on Heroku__
+__I also give a [web-application](https://unpuzzler.herokuapp.com) built using [Gradio](https://github.com/gradio-app/gradio) which simulates the puzzle-solving by the solver which is deployed on Heroku__
 
 ---
 
 
-_The following notebooks contain code and more precise notes for each step of this project. If the jupyter notebooks take too long to load, we invite the reader to open the markdown versions, which load faster._
+_The following notebooks contain code and more precise notes for each step of this project. If the jupyter notebooks take too long to load, please open the markdown versions, which load faster._
 
 
 ## Contents
