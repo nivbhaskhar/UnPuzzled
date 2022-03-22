@@ -9,7 +9,7 @@ cryptography==3.3.2
 cycler==0.10.0
 decorator==4.4.2
 future==0.18.2
-gradio==1.0.2
+gradio==2.8.11
 idna==2.10
 imageio==2.9.0
 ipython==7.16.1
