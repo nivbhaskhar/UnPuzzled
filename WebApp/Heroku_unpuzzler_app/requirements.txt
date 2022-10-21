@@ -18,7 +18,7 @@ jedi==0.17.2
 kiwisolver==1.2.0
 matplotlib==3.3.0
 networkx==2.4
-numpy==1.19.0
+numpy==1.22.0
 paramiko==2.7.1
 parso==0.7.0
 pexpect==4.8.0
