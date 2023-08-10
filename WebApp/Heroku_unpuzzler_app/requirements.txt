@@ -38,5 +38,5 @@ scipy==1.5.1
 six==1.15.0
 tifffile==2020.7.17
 traitlets==4.3.3
-urllib3==1.25.9
+urllib3==1.26.5
 wcwidth==0.2.5
